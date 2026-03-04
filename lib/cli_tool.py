@@ -8,41 +8,41 @@ users = {}
 
 # TODO: Implement function to add a task for a user
 def add_task(args):
-        username = args.user
-        title = args.title
+    username = args.user
+    title = args.title
     # - Check if the user exists, if not, create one
-        if username not in users:
-            users[username] = User(username)
-        
-        user = users[username]
+    if username not in users:
+        users[username] = User(username)
+    
+    user = users[username]
     # - Create a new Task with the given title
     
-        task = Task(title)
-        user.tasks.append(task)
-        print(f"Task '{title}' added to {username}.")
+    task = Task(title)
+    user.tasks.append(task)
+    print(f"📌 Task '{title}' added to {username}.")
     # - Add the task to the user's task list
 
 
 # TODO: Implement function to mark a task as complete
 def complete_task(args):
-        username = args.user
-        title = args.title
-        
+    username = args.user
+    title = args.title
+    
     # - Look up the user by name
     # - Look up the task by title
-        if username not in users:
-            print(f"User {username} not found.")
-            return
-        user = users[username]
+    if username not in users:
+        print(f"User {username} not found.")
+        return
+    user = users[username]
     # - Mark the task as complete
     
-        for task in user.tasks:
-            if task.title == title:
-                task.complete()
-                return
+    for task in user.tasks:
+        if task.title == title:
+            task.complete()
+            return
     # - Print appropriate error messages if not found
 
-        print(f"Task {title} not found for user {username}")
+    print(f"Task {title} not found for user {username}")
     
 
 # CLI entry point
