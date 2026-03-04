@@ -21,15 +21,11 @@ class User:
         self.name = name
         self.tasks = []
 
-    def add_task(self, task_desc):
-        task = Task(task_desc)
+    def add_task(self, task):
         self.tasks.append(task)
-        print(f"Task '{task_desc}' added for user {self.name}")
-        return task
 
     def complete_task(self, task_desc):
         for task in self.tasks:
-         if task.title == title:
-            task.complete()
-            print(f"✅ Task '{task.title}' completed.")  # ensures exact output
-            return
+            if task.title == task_desc:
+                task.complete()
+                return
